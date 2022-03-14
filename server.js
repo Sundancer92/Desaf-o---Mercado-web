@@ -49,7 +49,7 @@ app.get("/", function (req, res) {
 	).carrito;
 
 	console.log(carrito);
-	console.log(productos);
+
 	// Renderizado
 	res.render("Inicio", {
 		layout: "Inicio",
@@ -69,6 +69,26 @@ app.get("/agregar/:item", function (req, res) {
 	);
 
 	productosCarrito.carrito.push(item);
+
+	fs.writeFileSync(
+		"./assets/Carrito/productosCarrito.json",
+		JSON.stringify(productosCarrito),
+	);
+
+	res.redirect("/");
+});
+
+// Eliminar producto del carrito
+app.get("/restar/:index", function (req, res) {
+	// Obtenemos el index a eliminar
+	const index = req.params.index.slice(1);
+
+	// Modificacion del carrito
+	const productosCarrito = JSON.parse(
+		fs.readFileSync("./assets/Carrito/productosCarrito.json"),
+	);
+
+	productosCarrito.carrito.splice(index, 1);
 
 	fs.writeFileSync(
 		"./assets/Carrito/productosCarrito.json",

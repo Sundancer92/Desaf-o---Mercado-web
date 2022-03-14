@@ -19,7 +19,6 @@
 				></button>
 			</div>
 			<div class="modal-body">
-				<p class="text-danger">Borrar no funciona</p>
 				<div class="row">
 					{{!  HELPER EACH con los items en el carrito }}
 					{{#each carrito}}
@@ -32,7 +31,11 @@
 										class="card-img-top"
 										alt="{{this}}"
 									/>
-									<a href="#" class="btn btn-danger">Borrar</a>
+									<a
+										href="/restar/:{{@index}}"
+										class="btn btn-danger"
+										id="restar"
+									>Borrar</a>
 								</div>
 							</div>
 						</div>
