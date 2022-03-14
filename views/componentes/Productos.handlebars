@@ -1,4 +1,4 @@
-{{!--  MODAL  --}}
+{{!  MODAL  }}
 <div
 	class="modal fade"
 	id="exampleModal"
@@ -21,9 +21,9 @@
 			<div class="modal-body">
 				<p class="text-danger">Borrar no funciona</p>
 				<div class="row">
-					{{!--  HELPER EACH con los items en el carrito --}}
+					{{!  HELPER EACH con los items en el carrito }}
 					{{#each carrito}}
-						<div class="col-4 text-center">
+						<div class="col-4 text-center mb-1">
 							<div class="card">
 								<div class="card-body">
 									<h5 class="card-title">{{this}}</h5>
@@ -35,6 +35,10 @@
 									<a href="#" class="btn btn-danger">Borrar</a>
 								</div>
 							</div>
+						</div>
+					{{else}}
+						<div class="col-12 text-center">
+							<p class="text-danger">No hay productos en el carrito</p>
 						</div>
 					{{/each}}
 				</div>

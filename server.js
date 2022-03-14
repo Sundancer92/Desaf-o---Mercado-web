@@ -46,8 +46,10 @@ app.get("/", function (req, res) {
 			__dirname + "/assets/Carrito/productosCarrito.json",
 			"utf-8",
 		),
-	);
+	).carrito;
 
+	console.log(carrito);
+	console.log(productos);
 	// Renderizado
 	res.render("Inicio", {
 		layout: "Inicio",
@@ -66,7 +68,7 @@ app.get("/agregar/:item", function (req, res) {
 		fs.readFileSync("./assets/Carrito/productosCarrito.json"),
 	);
 
-	productosCarrito.push(item);
+	productosCarrito.carrito.push(item);
 
 	fs.writeFileSync(
 		"./assets/Carrito/productosCarrito.json",
