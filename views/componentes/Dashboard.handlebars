@@ -1,0 +1,25 @@
+<div class="container text-center">
+	<div class="row">
+		{{!-- HELPER con los productos --}}
+		{{#each productos}}
+			<div class="col-md-4 border boder-2 rounded 2"><a
+					href="/agregar/:{{this}}"
+				><img src="/{{this}}.png" /></a>
+				<div class="fw-bold">
+					{{this}}
+				</div>
+			</div>
+		{{/each}}
+	</div>
+	{{!--  Boton carrito --}}
+	<div class="row">
+		<a
+			class="m-auto mt-4 btn btn-success w-50 position-relative"
+			type="button"
+			data-bs-toggle="modal"
+			data-bs-target="#exampleModal"
+		>
+			<img src="/carrito-de-compras.png" height="25px" />
+		</a>
+	</div>
+</div>
